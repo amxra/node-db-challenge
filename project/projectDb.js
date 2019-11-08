@@ -6,7 +6,10 @@ module.exports = {
 };
 
 function get() {
-    return db('project');
+    return db('project')
+    .then(projects => projects.map(project => mappers.projectToBody(project)))
+   
+    
 }
 
 function insert(project) {
